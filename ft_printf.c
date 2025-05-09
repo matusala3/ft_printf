@@ -6,7 +6,7 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:47 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/09 17:15:28 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:49:32 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,81 @@ int print_char(va_list *args)
 
 int print_string(va_list *args)
 {
-    
+    int i;
+    char *str;
+
+    i = 0;
+    str = va_arg(*args, char *);
+    if(str == NULL)
+        return (write(1, "(null)", 6));
+    while (str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
+    return (i);
 }
 
-int print_pointer(va_list *args)
+int count_digits(long n)
 {
+    int count;
+
+    count = 0;
+    if (n == 0)
+        return 1;
+    while (n) {
+        n /= 10;
+        count++;
+    }
+    return count;
+}
+
+char *ft_itoa(int n)
+{
+    long num;
+    int sign;
+    int len;
+    char *res;
     
+    num = n;
+    sign = (n < 0);
+    len = count_digits(num) + sign;
+    res = malloc(len + 1);
+    if (!res)
+        return NULL;
+    if (sign)
+        num = -num;
+    res[len] = '\0';
+    while (len-- > sign) {
+        res[len] = (num % 10) + '0';
+        num /= 10;
+    }
+    if (sign)
+        res[0] = '-';
+    return res;
 }
 
 int print_integer(va_list *args)
+{
+    int n;
+    char *str;
+    int bytes;
+    int i;
+    
+    i = 0;
+    bytes = 0;
+    n = va_arg(*args, int);
+    str = ft_itoa(n);
+    if (!str)
+        return -1;
+    while (str[i])
+        i++;
+    bytes = write(1, str, i);
+    free(str);
+    return bytes;
+}
+
+int print_pointer(va_list *args)
 {
     
 }
