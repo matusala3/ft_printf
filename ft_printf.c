@@ -6,57 +6,55 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:47 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/10 15:04:36 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:20:40 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int dispatch_specifier(char spec, va_list *args)
+static int	dispatch_specifier(char spec, va_list *args)
 {
-    int j;
-    const t_specifier specifiers[] = {
-        {'c', print_char},
-        {'s', print_string},
-        {'p', print_pointer},
-        {'d', print_int},
-        {'i', print_int},
-        {'u', print_unsigned},
-        {'x', print_hex_lower},
-        {'X', print_hex_upper},
-        {'\0', NULL}
-    };
+	int					j;
+	const t_specifier	specifiers[] = {
+	{'c', print_char},
+	{'s', print_string},
+	{'p', print_pointer},
+	{'d', print_int},
+	{'i', print_int},
+	{'u', print_unsigned},
+	{'x', print_hex_lower},
+	{'X', print_hex_upper},
+	{'\0', NULL}
+	};
 
-    j = 0;
-    while (specifiers[j].specifier)
-    {
-        if (specifiers[j].specifier == spec)
-            return specifiers[j].handler(args);
-        j++;
-    }
-    write(1, &spec, 1);
-    return 1;
+	j = 0;
+	while (specifiers[j].specifier)
+	{
+		if (specifiers[j].specifier == spec)
+			return (specifiers[j].handler(args));
+		j++;
+	}
+	write(1, &spec, 1);
+	return (1);
 }
 
-
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-    int i;
-    int count;
-    va_list args;
-    va_start(args, format);
+	int		i;
+	int		count;
+	va_list	args;
 
-    i = 0;
-    count = 0;
-    while (format[i])
-    {
-        if (format[i] == '%')
-            count += dispatch_specifier(format[++i], &args);
-        else
-            count += write(1, &format[i], 1);
-        i++;
-    }
-    va_end(args);
-    return count;
+	i = 0;
+	count = 0;
+	va_start(args, format);
+	while (format[i])
+	{
+		if (format[i] == '%')
+			count += dispatch_specifier(format[++i], &args);
+		else
+			count += write(1, &format[i], 1);
+		i++;
+	}
+	va_end(args);
+	return (count);
 }
-
