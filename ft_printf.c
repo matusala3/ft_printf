@@ -6,25 +6,11 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:47 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/09 18:49:32 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:04:36 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int print_pointer(va_list *args)
-{
-    
-}
-
-int print_hex_lower(va_list *args)
-{
-    
-}
-int print_hex_upper(va_list *args)
-{
-    
-}
 
 static int dispatch_specifier(char spec, va_list *args)
 {
@@ -48,9 +34,8 @@ static int dispatch_specifier(char spec, va_list *args)
             return specifiers[j].handler(args);
         j++;
     }
-    write(1, "%", 1);
     write(1, &spec, 1);
-    return 2;
+    return 1;
 }
 
 

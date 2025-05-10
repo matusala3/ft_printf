@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/10 12:45:20 by magebreh          #+#    #+#             */
+/*   Updated: 2025/05/10 12:45:21 by magebreh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int count_digits(long n)
@@ -15,7 +27,7 @@ static int count_digits(long n)
     return count;
 }
 
-static int ft_utoa(unsigned int n)
+static char *ft_utoa(unsigned int n)
 {
     int len;
     char *res;
@@ -31,7 +43,6 @@ static int ft_utoa(unsigned int n)
         n = n / 10;
     }
     return (res);
-
 }
 
 int print_unsigned(va_list *args)
