@@ -31,4 +31,9 @@ typedef struct s_specifier
     t_handler handler;
 } t_specifier;
 
+int print_char(va_list *args);
+int print_string(va_list *args);
+int print_int(va_list *args);
+int print_unsigned(va_list *args);
+
 #endif
