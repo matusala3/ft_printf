@@ -6,7 +6,7 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:47 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/12 11:37:47 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/12 14:04:54 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	va_list	args;
 
-	if(format == NULL)
+	if (format == NULL)
 		return (-1);
 	va_start(args, format);
 	count = handle_format(format, &args);

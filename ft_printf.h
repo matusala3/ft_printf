@@ -6,7 +6,7 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:51 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/12 11:13:44 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/12 14:03:11 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdint.h>
+# include <stdint.h>
 
 # ifndef LOWERCASE
 #  define LOWERCASE 0

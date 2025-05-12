@@ -6,7 +6,7 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 12:45:46 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/12 11:13:49 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/12 14:03:52 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_utoa_hex(uintptr_t n, int is_uppercase)
 static int	print_hex(va_list *args, int is_uppercase)
 {
 	int				i;
-	uintptr_t	n;
+	uintptr_t		n;
 	char			*buff;
 
 	i = 0;
