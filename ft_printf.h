@@ -6,7 +6,7 @@
 /*   By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:08:51 by magebreh          #+#    #+#             */
-/*   Updated: 2025/05/10 17:23:07 by magebreh         ###   ########.fr       */
+/*   Updated: 2025/05/12 11:13:44 by magebreh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdint.h>
 
 # ifndef LOWERCASE
 #  define LOWERCASE 0
@@ -39,7 +40,7 @@ int		print_unsigned(va_list *args);
 int		print_hex_upper(va_list *args);
 int		print_hex_lower(va_list *args);
 int		print_pointer(va_list *args);
-char	*ft_utoa_hex(unsigned long n, int is_uppercase);
+char	*ft_utoa_hex(uintptr_t n, int is_uppercase);
 int		ft_printf(const char *format, ...);
 
 #endif
