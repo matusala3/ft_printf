@@ -38,23 +38,42 @@ static int	dispatch_specifier(char spec, va_list *args)
 	return (1);
 }
 
-int	ft_printf(const char *format, ...)
+static int	handle_format(const char *format, va_list *args)
 {
 	int		i;
 	int		count;
-	va_list	args;
+	int		written_bytes;
 
 	i = 0;
 	count = 0;
-	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
-			count += dispatch_specifier(format[++i], &args);
+		{
+			written_bytes = dispatch_specifier(format[++i], args);
+			if (written_bytes == -1)
+				return (-1);
+			count += written_bytes;
+		}
 		else
-			count += write(1, &format[i], 1);
+		{
+			written_bytes = write(1, &format[i], 1);
+			if (written_bytes == -1)
+				return (-1);
+			count += written_bytes;
+		}
 		i++;
 	}
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		count;
+	va_list	args;
+
+	va_start(args, format);
+	count = handle_format(format, &args);
 	va_end(args);
 	return (count);
 }
