@@ -6,7 +6,7 @@
 #    By: magebreh <magebreh@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/10 12:46:14 by magebreh          #+#    #+#              #
-#    Updated: 2025/05/10 13:48:50 by magebreh         ###   ########.fr        #
+#    Updated: 2025/05/14 13:15:14 by magebreh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME) $(OBJ)
+	$(RM) $(NAME)
 
 re: fclean all
 
